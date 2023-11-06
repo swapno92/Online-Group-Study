@@ -2,6 +2,7 @@
 
 import Banner from "./Banner";
 import Faq from "./Faq";
+import Feature from "./Feature";
 
 // import Banner from "./Banner";
 // import Faq from "./Faq";
@@ -12,6 +13,7 @@ const Home = () => {
         <div className="space-y-8">
           <Banner></Banner>
           <Faq></Faq>
+          <Feature></Feature>
         </div>
     );
 };
