@@ -5,7 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import AddAssignment from './components/AddAssignment.jsx';
+import CreateAssignment from './components/CreateAssignment.jsx';
 import UpdateAssignment from './components/UpdateAssignment.jsx';
 import Home from './components/Home.jsx';
 import Root from './components/Root.jsx';
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
-        path: "/addAssignment",
-        element: <AddAssignment></AddAssignment>
+        path: "/createAssignment",
+        element: <CreateAssignment></CreateAssignment>
       },
       {
         path: "/updateAssignment",
