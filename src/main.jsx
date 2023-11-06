@@ -14,6 +14,8 @@ import Assignment from './Assignment.jsx';
 import UpdateAssignment from './components/UpdateAssignment.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import AssignmentDetails from './AssignmentDetails.jsx';
+import AuthProvider from './Providers/AuthProvider.jsx';
+import Separet from './components/Separet.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,25 @@ const router = createBrowserRouter([
       {
         path: "/createAssignment",
         element: <CreateAssignment></CreateAssignment>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "register",
+        element: <Register></Register>
+      },
+
+
+      {
+        path:"separet/level",
+        element: <Separet></Separet>,
+        loader: ({ params }) =>
+          fetch(`https://assignment-ten-server-obv1rxclj-swapno92.vercel.app/products/${params.name}`),
       }
+
+
     ]
   },
   {
@@ -45,19 +65,13 @@ const router = createBrowserRouter([
     path: "assignment/updateAssignment/:id",
     element: <UpdateAssignment></UpdateAssignment>,
     loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
-  },
-  {
-    path: "/login",
-    element: <Login></Login>
-  },
-  {
-    path: "register",
-    element: <Register></Register>
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
