@@ -1,4 +1,5 @@
 // import React from 'react';
+import Swal from 'sweetalert2'
 
 const CreateAssignment = () => {
 
@@ -13,13 +14,35 @@ const CreateAssignment = () => {
         const description = form.description.value
         const newAssignment = { title, marks, photo, level, description }
         console.log(newAssignment)
+
+        //send data to the server
+        fetch('http://localhost:5000/assignment', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newAssignment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Assignment created successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Close'
+                    })
+                }
+            })
+
     }
     return (
         <>
             <form onSubmit={handleCreateAssignment}>
                 <div className="my-4 mx-4  py-3 rounded-lg border border-purple-500">
                     <h2 className="text-center text-3xl font-bold font-serif text-gray-600">
-                        Add Product
+                        Create Assignment
                     </h2>
                     <div className="grid md:grid-cols-2 grid-cols-1  md:px-16">
                         <div className="space-y-1 mt-8 ">
@@ -58,15 +81,15 @@ const CreateAssignment = () => {
                         <div className="space-y-1 mt-8">
                             <h3 className="text-lg font-semibold ml-4">Assignment Difficulty Level :</h3>
                             <select id="" name="level" className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4 ">
-                                <option value="easy">easy </option>
-                                <option value="medium">medium</option>
-                                <option value="hard" >hard</option>
+                                <option value="Easy">Easy </option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard" >Hard</option>
                             </select>
                         </div>
                         <div className="space-y-1 mt-8">
                             <h3 className="text-lg font-semibold ml-4">Description :</h3>
                             <textarea
-                                className="border border-gray-300 rounded-lg pt-8 md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4"
+                                className="border border-gray-300 rounded-lg p-8 md:w-[85%] w-[90%] md:ml-0 ml-4"
                                 name="description"
                                 id=""
                                 // cols="lg:65"

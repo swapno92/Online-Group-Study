@@ -1,0 +1,72 @@
+[
+  {
+    "photo": "https://i.ibb.co/MfkvXbR/1.jpg",
+    "title": "Introduction to HTML and CSS",
+    "marks": 100,
+    "level": "Easy",
+    "description":"HTML (HyperText Markup Language) and CSS (Cascading Style Sheets) are foundational technologies used to create and design websites. HTML provides the structure and content of a web page, defining elements such as headings, paragraphs, links, and images. CSS, on the other hand, enhances the presentation of these elements by specifying styles like colors, fonts, layout, and spacing."
+  },
+  {
+    "photo": "https://i.ibb.co/TW7M0GZ/2.jpg",
+    "title": "Mathematical Marvels",
+    "marks": 100,
+    "level": "Hard",
+    "description":"Mathematical Marvels is a captivating exploration of mathematical wonders, from mind-boggling puzzles to profound theorems. Dive into the fascinating world of numbers, patterns, and equations. This intriguing series explores the beauty and utility of mathematics in our everyday lives and beyond. From unraveling the mysteries of prime numbers to delving into the elegance of geometric shapes, each episode showcases the marvels of mathematical concepts. Join us on a journey where abstract theories meet real-world applications, and witness the magic of mathematics come to life."
+},
+{
+    "photo": "https://i.ibb.co/DrGC1M2/3.jpg",
+    "title": "Exploring JavaScript Basics",
+    "marks": 100,
+    "level": "Easy",
+    "description":"'Exploring JavaScript Basics' is a comprehensive introduction to the fundamental concepts of JavaScript programming language. This course provides a solid foundation for beginners, covering essential topics such as variables, data types, control structures, functions, and basic algorithms. Participants will dive into hands-on exercises and coding examples, gaining practical experience in writing JavaScript code. By the end of the course, students will have a strong grasp of JavaScript basics."
+},
+{
+    "photo": "https://i.ibb.co/q1jpcYb/4.png",
+    "title": "Backend Development with Node.js",
+    "marks": 100,
+    "level": "Medium",
+    "description":"Unlock the power of server-side programming with our 'Backend Development with Node.js' course. Dive deep into the world of asynchronous JavaScript and learn how to build scalable, high-performance web applications. This course covers everything from setting up your development environment to creating robust APIs and handling database operations. Explore the versatility of Node.js as you master concepts like event-driven programming, RESTful API design, and real-time communication."
+},
+  {
+    "photo": "https://i.ibb.co/KqVbJXk/5.png",
+    "title": "Statistics and Probability",
+    "marks": 100,
+    "level": "Hard",
+    "description":"Statistics and Probability delve into the world of data analysis, providing essential tools for making informed decisions in various fields. In this course, students will learn how to collect, organize, analyze, and interpret data. They will explore fundamental concepts such as probability theory, statistical inference, and regression analysis. By mastering these skills, students gain the ability to draw meaningful conclusions from data."
+  },
+  {
+    "photo": "https://i.ibb.co/ykLGwV5/6.jpg",
+    "title": "Astrophysics and Cosmology",
+    "marks": 100,
+    "level": "Easy",
+    "description":"Astrophysics and cosmology are branches of astronomy that delve into the mysteries of the universe. Astrophysics focuses on understanding the behavior and properties of celestial objects such as stars, planets, galaxies, and the vast interstellar space. Scientists in this field explore the fundamental principles of physics to decipher the complex processes that govern the cosmos."
+  },
+  {
+    "photo": "https://i.ibb.co/JxCY48r/7.jpg",
+    "title": "Web Performance Optimization",
+    "marks": 100,
+    "level": "Medium",
+    "description":"Web Performance Optimization (WPO) refers to the process of improving the speed, efficiency, and overall responsiveness of a website or web application. By optimizing various elements such as code, images, scripts, and server configurations, WPO aims to enhance user experience, reduce loading times, and increase the website's overall efficiency. Techniques like minification, compression, caching, and content delivery network (CDN) usage are commonly employed to achieve optimal web performance."
+  },
+  {
+    "photo": "https://i.ibb.co/L9hgdV9/8.jpg",
+    "title": "Character Development in Literature",
+    "marks": 100,
+    "level": "Medium",
+    "description":"Character development in literature refers to the process through which characters are created and portrayed by authors. It involves giving depth and complexity to characters, allowing them to grow, change, and evolve throughout the course of a story. This concept explores how characters' personalities, beliefs, motivations, and relationships transform in response to the events and challenges they face."
+  },
+  {
+    "photo": "https://i.ibb.co/gJsMGfr/9.png",
+    "title": "Version Control with Git and GitHub",
+    "marks": 100,
+    "level": "Hard",
+    "description":"Version Control with Git and GitHub is a fundamental aspect of modern software development. Git is a distributed version control system that allows developers to track changes in their code, collaborate with others, and maintain a complete history of their projects. GitHub, on the other hand, is a web-based hosting service for Git repositories, providing a platform for developers to host, share, and collaborate on projects."
+  },
+  {
+    "photo": "https://i.ibb.co/W08Snhc/10.png",
+    "title": "Creative Writing Workshop",
+    "marks": 100,
+    "level": "Easy",
+    "description":"Unleash your creativity and sharpen your writing skills in our engaging Creative Writing Workshop! This workshop offers a supportive and inspiring environment where aspiring writers can explore various genres, experiment with different writing styles, and receive constructive feedback from peers and experienced mentors. Whether you're interested in fiction, poetry, screenwriting, or creative nonfiction, this workshop provides a platform to express your unique voice and hone your storytelling abilities. "
+  }
+]
