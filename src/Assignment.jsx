@@ -1,13 +1,56 @@
 // import React from 'react';
+import './Assignment.css'
 
 import { useLoaderData } from "react-router-dom";
 import AssignmentCard from "./AssignmentCard";
-import { useState } from "react";
+import {  useState } from "react";
 
+// window.location.reload();
 const Assignment = () => {
     const loadedAssignments = useLoaderData()
+    // console.log(loadedAssignments)
     const [assignments, setAssignments] = useState(loadedAssignments)
     // console.log(assignments)
+
+
+    // const [itemsPerPage, setItemsPerPage] = useState(4)
+    // const [currentPage, setCurrentPage] = useState(0)
+    // const [assignmentCart, setAssignmentCart] = useState()
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/assignmentsCount
+    //     `)
+    //     // ?page=${currentPage}&size=${itemsPerPage}
+    //     .then(res => res.json())
+    //     .then(data => setAssignmentCart(data))
+    // }, [currentPage, itemsPerPage])
+    // const { count } = assignmentCart
+    // console.log(assignmentCart)
+    // const itemsPerPage = 4
+    // const numberOfPages = Math.ceil(assignmentCart.count / itemsPerPage)
+    // const pages = []
+    // for (let i = 0; i < numberOfPages; i++) {
+    //     pages.push(i)
+    // }
+    // // console.log(pages)
+    // const handleItemsPerPage = e => {
+    //     // console.log(e.target.value)
+    //     const val = parseInt(e.target.value)
+    //     // console.log(val)
+    //     setItemsPerPage(val)
+    //     setCurrentPage(0)
+    // }
+    // const handlePreviousPage = () => {
+    //     if (currentPage > 0) {
+    //         setCurrentPage(currentPage - 1)
+    //     }
+    // }
+    // const handleNextPage = () => {
+    //     if (currentPage < pages.length - 1) {
+    //         setCurrentPage(currentPage + 1)
+    //     }
+    // }
+
+
 
     const [searchItem, setSearchItem] = useState('')
     // const [showCards, setShowCards] = useState([])
@@ -46,6 +89,29 @@ const Assignment = () => {
                     ></AssignmentCard>)
                 }
             </section>
+
+
+            {/* <div className='pagination line'>
+
+                <p>
+                    currentPage:{currentPage}
+                </p>
+                <button className='line rounded-md px-2 py-1' onClick={handlePreviousPage}>Prev</button>
+                {
+                    pages.map(page => <button
+                        className={`line rounded-md px-4 py-1 ${currentPage === page ? 'selected' : undefined}`}
+                        onClick={() => setCurrentPage(page)}
+                        key={page}
+                    >{page}</button>)
+                }
+                <button className='line rounded-md px-2 py-1' onClick={handleNextPage}>Next</button>
+                <select className='line rounded-md px-2 py-1' value={itemsPerPage} name="" id="" onChange={handleItemsPerPage} >
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+            </div> */}
         </div>
     );
 };

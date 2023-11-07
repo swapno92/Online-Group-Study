@@ -1,5 +1,6 @@
 // import React from 'react';
 
+import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import Faq from "./Faq";
 import Feature from "./Feature";
