@@ -5,12 +5,13 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
+    // const {user} = useContext(AuthContext)
 
 
 
 
     const { user, logOut } = useContext(AuthContext);
-    console.log(user)
+    // console.log(user.email)
 
     const handleLogOut = () => {
         logOut()
@@ -27,7 +28,7 @@ const Navbar = () => {
                 <NavLink to="/assignment">Assignments</NavLink>
             </li>
             <li className="text-lg font-semibold">
-                <NavLink to="/myAssignment">My
+                <NavLink to={`/myAssignments`}>My
                     assignments</NavLink>
             </li>
             <li className="text-lg font-semibold">

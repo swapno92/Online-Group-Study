@@ -1,7 +1,10 @@
 // import React from 'react';
+import { useContext } from 'react';
 import Swal from 'sweetalert2'
+import { AuthContext } from '../Providers/AuthProvider';
 
 const CreateAssignment = () => {
+    const {user} = useContext(AuthContext)
 
     const handleCreateAssignment = event => {
         event.preventDefault()
@@ -11,8 +14,9 @@ const CreateAssignment = () => {
         const marks = form.marks.value
         const photo = form.photo.value
         const level = form.level.value
+        const email = form.email.value
         const description = form.description.value
-        const newAssignment = { title, marks, photo, level, description }
+        const newAssignment = { title, marks, photo, level,email, description }
         console.log(newAssignment)
 
         //send data to the server
@@ -26,7 +30,7 @@ const CreateAssignment = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if(data.insertedId){
+                if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Assignment created successfully',
@@ -85,6 +89,18 @@ const CreateAssignment = () => {
                                 <option value="Medium">Medium</option>
                                 <option value="Hard" >Hard</option>
                             </select>
+                        </div>
+                        <div className="space-y-1 mt-8">
+                            <h3 className="text-lg font-semibold ml-4">User Email :</h3>
+                            <input
+                                className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4"
+                                type="email"
+                                name="email"
+                                defaultValue={user?.email}
+                                id=""
+                                placeholder="User Email"
+                            // defaultValue={data.img}
+                            />
                         </div>
                         <div className="space-y-1 mt-8">
                             <h3 className="text-lg font-semibold ml-4">Description :</h3>

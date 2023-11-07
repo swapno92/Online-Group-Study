@@ -6,12 +6,12 @@ import { useState } from "react";
 
 const Assignment = () => {
     const assignments = useLoaderData()
-    console.log(assignments)
+    // console.log(assignments)
 
     const [searchItem, setSearchItem] = useState('')
     // const [showCards, setShowCards] = useState([])
     const filterData = assignments?.filter((item) => {
-        console.log(item.level)
+        // console.log(item.level)
         if (item && item.level) {
             return item.level.toLowerCase().includes(searchItem.toLowerCase())
         }

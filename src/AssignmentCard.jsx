@@ -1,10 +1,44 @@
 // import React from 'react';
 
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AssignmentCard = ({ assignment }) => {
     const { _id, photo, level, marks, title } = assignment
-    console.log(assignment)
+    // console.log(assignment)
+
+    const handleDelete = _id => {
+        console.log(_id)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/assignment/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+                console.log('delete confirmed')
+            }
+        });
+    }
     // console.log(assDefLevel)
     return (
         <div className=" py-4 bg-white shadow-lg rounded-md ">
@@ -27,15 +61,20 @@ const AssignmentCard = ({ assignment }) => {
                 <Link to={`detailsAssignments/${_id}`}>
                     <button
                         // onClick={() => handleDelete(_id)}
-                        className=" mt-2 px-6 py-1 rounded font-semibold text-xl bg-red-100 border border-red-500">View <br />Assignment
+                        className=" mt-2 px-6 py-1 rounded font-semibold text-xl bg-green-100 border border-green-500">View <br />Assignment
                     </button>
                 </Link>
                 <Link to={`updateAssignment/${_id}`}>
                     <button
                         // onClick={() => handleDelete(_id)}
-                        className=" mt-2 px-6 py-1 rounded font-semibold text-xl bg-red-100 border border-red-500">Update <br />Assignment
+                        className=" mt-2 px-6 py-1 rounded font-semibold text-xl bg-green-100 border border-green-500">Update <br />Assignment
                     </button>
                 </Link>
+            </div>
+            <div className="flex justify-center items-center">
+                <button
+                    onClick={() => handleDelete(_id)}
+                    className=" mt-4 px-6 py-1 rounded font-semibold text-xl bg-red-100 border border-red-500">Delete</button>
             </div>
         </div>
     );

@@ -1,15 +1,15 @@
-// import React from 'react';
+// // import React from 'react';
 
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 
-const Separet = () => {
-    const separetProducts = useLoaderData()
-    console.log(separetProducts)
-    return (
-        <div>
-            separet
-        </div>
-    );
-};
+// const Separet = () => {
+//     const separetProducts = useLoaderData()
+//     console.log(separetProducts)
+//     return (
+//         <div>
+//             separet
+//         </div>
+//     );
+// };
 
-export default Separet;
+// export default Separet;

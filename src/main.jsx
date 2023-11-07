@@ -15,7 +15,8 @@ import UpdateAssignment from './components/UpdateAssignment.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import AssignmentDetails from './AssignmentDetails.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
-import Separet from './components/Separet.jsx';
+import MyAssignment from './components/MyAssignment.jsx';
+// import Separet from './components/Separet.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,15 +45,19 @@ const router = createBrowserRouter([
         path: "register",
         element: <Register></Register>
       },
-
-
       {
-        path:"separet/level",
-        element: <Separet></Separet>,
+        path: 'myAssignments/:email',
+        element: <MyAssignment></MyAssignment>,
         loader: ({ params }) =>
-          fetch(`https://assignment-ten-server-obv1rxclj-swapno92.vercel.app/products/${params.name}`),
+          fetch(`http://localhost:5000/assignment/${params.email}`),
       }
 
+      // {
+      //   path:"separet/level",
+      //   element: <Separet></Separet>,
+      //   loader: ({ params }) =>
+      //     fetch(`https://assignment-ten-server-obv1rxclj-swapno92.vercel.app/products/${params.name}`),
+      // }
 
     ]
   },
