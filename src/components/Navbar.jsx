@@ -21,32 +21,32 @@ const Navbar = () => {
 
     const items = (
         <>
-            <li className="text-lg font-semibold">
+            <li className={` text-lg font-semibold ${user ? 'hidden' : "block"}`}>
                 <NavLink to="/">Home</NavLink>
             </li>
-            <li className="text-lg font-semibold">
+            <li className={` text-lg font-semibold`}>
                 <NavLink to="/assignment">Assignments</NavLink>
             </li>
-            <li className="text-lg font-semibold">
+            <li className={` text-lg font-semibold ${user ? 'block' : "hidden"}`}>
                 <NavLink to={`/myAssignments`}>My
                     assignments</NavLink>
             </li>
-            <li className="text-lg font-semibold">
+            <li className={` text-lg font-semibold ${user ? 'block' : "hidden"}`}>
                 <NavLink to="/createAssignment">Create assignments</NavLink>
             </li>
-            <li className="text-lg font-semibold">
+            <li className={` text-lg font-semibold ${user ? 'block' : "hidden"}`}>
                 <NavLink to="/submited">Submited</NavLink>
             </li>
-            <li className="text-lg font-semibold">
+            <li className={` text-lg font-semibold ${user ? 'hidden' : "block"}`}>
                 <NavLink to="/login">login</NavLink>
             </li>
-            <li className="text-lg font-semibold">
+            <li className={` text-lg font-semibold ${user ? 'hidden' : "block"}`}>
                 <NavLink to="/register">Register</NavLink>
             </li>
         </>
     );
     return (
-        <div className="navbar bg-base-100 lg:px-1 px-3 ">
+        <div className="navbar bg-base-100 lg:px-10 px-3 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -86,7 +86,7 @@ const Navbar = () => {
             <div className="navbar-end">
                 {user ? (
                     <>
-                        <img className="w-10 h-10 rounded-full" title={user.displayName} src={user.photoURL} />
+                        <img className="w-10 mr-2 h-10 rounded-full" title={user.displayName} src={user.photoURL} />
                         {/* <span className="mx-3 bg-gray-300 px-2 py-3 rounded lg">
                             {user.displayName}
                         </span> */}
@@ -97,7 +97,7 @@ const Navbar = () => {
                 ) : (
                     <>
                         <Link to="/login">
-                            <button className="btn font-semibold">Login</button>
+                            <button className={` text-lg font-semibold ${user ? 'block' : "hidden"}`}>Login</button>
                         </Link>
                     </>
                 )}

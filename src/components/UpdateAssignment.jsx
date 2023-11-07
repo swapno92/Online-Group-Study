@@ -16,10 +16,11 @@ const UpdateAssignment = () => {
 
         const title = form.title.value
         const marks = form.marks.value
+        const date = form.date.value
         const photo = form.photo.value
         const level = form.level.value
         const description = form.description.value
-        const updatedAssignment = { title, marks, photo, level, description }
+        const updatedAssignment = { title, marks, photo, level,date, description }
         // console.log(updatedAssignment)
 
         //send data to the server
@@ -83,6 +84,17 @@ const UpdateAssignment = () => {
                                 id=""
                                 placeholder="Image Url"
                                 defaultValue={photo}
+                            />
+                        </div>
+                        <div className="space-y-1 mt-8">
+                            <h3 className="text-lg font-semibold ml-4">Date :</h3>
+                            <input
+                                className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4"
+                                type="date"
+                                name="date"
+                                id=""
+                                // defaultValue={'date'}
+                                placeholder="date"
                             />
                         </div>
                         <div className="space-y-1 mt-8">

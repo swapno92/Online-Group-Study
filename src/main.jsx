@@ -16,6 +16,7 @@ import ErrorPage from './components/ErrorPage.jsx';
 import AssignmentDetails from './AssignmentDetails.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 import MyAssignment from './components/MyAssignment.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 // import Separet from './components/Separet.jsx';
 
 const router = createBrowserRouter([
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/createAssignment",
-        element: <CreateAssignment></CreateAssignment>
+        element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
       },
       {
         path: "/login",
@@ -46,29 +47,22 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: 'myAssignments/:email',
-        element: <MyAssignment></MyAssignment>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/assignment/${params.email}`),
-      }
-
+        path: 'myAssignments',
+        element: <PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>,
+      },
       // {
-      //   path:"separet/level",
-      //   element: <Separet></Separet>,
-      //   loader: ({ params }) =>
-      //     fetch(`https://assignment-ten-server-obv1rxclj-swapno92.vercel.app/products/${params.name}`),
+      //   path:
       // }
-
     ]
   },
   {
     path: 'assignment/detailsAssignments/:id',
-    element: <AssignmentDetails></AssignmentDetails>,
+    element: <PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
     loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
   },
   {
     path: "assignment/updateAssignment/:id",
-    element: <UpdateAssignment></UpdateAssignment>,
+    element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
     loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
   }
 ]);

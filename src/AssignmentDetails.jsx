@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 
 const AssignmentDetails = () => {
     const loadedAssignment = useLoaderData()
+    console.log(loadedAssignment)
     const {description,photo,title} = loadedAssignment
     // console.log(photo)
     return (

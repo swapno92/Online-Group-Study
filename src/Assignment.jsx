@@ -5,7 +5,8 @@ import AssignmentCard from "./AssignmentCard";
 import { useState } from "react";
 
 const Assignment = () => {
-    const assignments = useLoaderData()
+    const loadedAssignments = useLoaderData()
+    const [assignments, setAssignments] = useState(loadedAssignments)
     // console.log(assignments)
 
     const [searchItem, setSearchItem] = useState('')
@@ -40,8 +41,9 @@ const Assignment = () => {
                     filterData.map(assignment => <AssignmentCard
                         key={assignment._id}
                         assignment={assignment}
+                        assignments={assignments}
+                        setAssignments={setAssignments}
                     ></AssignmentCard>)
-
                 }
             </section>
         </div>

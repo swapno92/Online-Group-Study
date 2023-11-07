@@ -12,8 +12,8 @@ const Home = () => {
     return (
         <div className="space-y-8">
           <Banner></Banner>
-          <Faq></Faq>
           <Feature></Feature>
+          <Faq></Faq>
         </div>
     );
 };

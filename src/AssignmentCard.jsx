@@ -1,43 +1,63 @@
 // import React from 'react';
 
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "./Providers/AuthProvider";
 
-const AssignmentCard = ({ assignment }) => {
-    const { _id, photo, level, marks, title } = assignment
+const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
+    const { _id, photo, level, marks, title, email } = assignment
     // console.log(assignment)
 
+    const { user } = useContext(AuthContext)
+    // console.log(user.email)
+    // console.log(email)
+
     const handleDelete = _id => {
-        console.log(_id)
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
+        if (email === user.email) {
+            // console.log(true)
+            console.log(_id)
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/assignment/${_id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
-                        if (data.deletedCount > 0) {
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
-                                icon: "success"
-                            });
-                        }
+                    fetch(`http://localhost:5000/assignment/${_id}`, {
+                        method: 'DELETE'
                     })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            if (data.deletedCount > 0) {
+                                Swal.fire({
+                                    title: "Deleted!",
+                                    text: "Your file has been deleted.",
+                                    icon: "success"
+                                });
+                                const remainingAssignments = assignments.filter(assign => assign._id !== _id)
+                                setAssignments(remainingAssignments)
+                            }
+                        })
 
-                console.log('delete confirmed')
-            }
-        });
+                    console.log('delete confirmed')
+                }
+            });
+        }
+        else {
+            // console.log(false)
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "You can only delete assignments you have created!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
+        }
     }
     // console.log(assDefLevel)
     return (

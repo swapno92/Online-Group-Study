@@ -13,10 +13,11 @@ const CreateAssignment = () => {
         const title = form.title.value
         const marks = form.marks.value
         const photo = form.photo.value
+        const date = form.date.value
         const level = form.level.value
         const email = form.email.value
         const description = form.description.value
-        const newAssignment = { title, marks, photo, level,email, description }
+        const newAssignment = { title, marks, photo, level,email, description,date }
         console.log(newAssignment)
 
         //send data to the server
@@ -79,6 +80,18 @@ const CreateAssignment = () => {
                                 name="photo"
                                 id=""
                                 placeholder="Image Url"
+                            // defaultValue={data.img}
+                            />
+                        </div>
+                        <div className="space-y-1 mt-8">
+                            <h3 className="text-lg font-semibold ml-4">Details :</h3>
+                            <input
+                                className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4"
+                                type="date"
+                                name="date"
+                                defaultValue={'date'}
+                                id=""
+                                placeholder="Date"
                             // defaultValue={data.img}
                             />
                         </div>
