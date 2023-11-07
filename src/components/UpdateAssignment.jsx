@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const UpdateAssignment = () => {
     const assignment = useLoaderData()
-    const { _id, img, assDefLevel, marks, title, description } = assignment
+    const { _id, photo, level, marks, title, description } = assignment
     // console.log(typeof(_id))
     // console.log(`http://localhost:5000/assignment/${_id}`)
 
@@ -81,14 +81,13 @@ const UpdateAssignment = () => {
                                 type="url"
                                 name="photo"
                                 id=""
-
                                 placeholder="Image Url"
-                                defaultValue={img}
+                                defaultValue={photo}
                             />
                         </div>
                         <div className="space-y-1 mt-8">
                             <h3 className="text-lg font-semibold ml-4">Assignment Difficulty Level :</h3>
-                            <select id="" name="level" defaultValue={assDefLevel} className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4 ">
+                            <select id="" name="level" defaultValue={level} className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4 ">
                                 <option  value="Easy">Easy </option>
                                 <option  value="Medium">Medium</option>
                                 <option  value="Hard" >Hard</option>

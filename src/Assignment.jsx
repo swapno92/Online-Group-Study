@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const Assignment = () => {
     const assignments = useLoaderData()
+    console.log(assignments)
 
     const [searchItem, setSearchItem] = useState('')
     // const [showCards, setShowCards] = useState([])
