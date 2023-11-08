@@ -3,24 +3,28 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-// import swal from "sweetalert";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
+// import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "./Providers/AuthProvider";
+// import swal from "sweetalert";
 
 const AssignmentDetails = () => {
-const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const handleSubmitedForm = event => {
         event.preventDefault()
         const form = event.target;
 
+        const title = form.title.value
+        const marks = form.marks.value
+        const name = form.name.value
         const email = form.email.value
         const pdf = form.pdf.value
         const note = form.note.value
         const status = document.getElementById('status').innerText
         // console.log(status)
-        const newSumited = { pdf, note, status ,email}
+        const newSumited = { pdf, title, name, marks, note, status, email }
         console.log(newSumited)
 
         //send data to the server
@@ -35,7 +39,7 @@ const {user} = useContext(AuthContext)
             .then(data => {
                 console.log(data)
                 if (data.insertedId) {
-                    Swal.fire({
+                    swal.fire({
                         title: 'Success!',
                         text: 'Assignment Form Submited successfully',
                         icon: 'success',
@@ -47,8 +51,8 @@ const {user} = useContext(AuthContext)
 
     const loadedAssignment = useLoaderData()
     // console.log(loadedAssignment)
-    const { description, photo, title } = loadedAssignment
-    // console.log(photo)
+    const { description, photo, title, marks } = loadedAssignment
+    // console.log(title)
     return (
         <div>
             <Navbar></Navbar>
@@ -122,6 +126,42 @@ const {user} = useContext(AuthContext)
                                         defaultValue={user?.email}
                                         id=""
                                         placeholder="User Email"
+                                    // defaultValue={data.img}
+                                    />
+                                </div>
+                                <div className="space-y-1 mt-8 hidden">
+                                    <h3 className="text-lg font-semibold ml-4">User Name :</h3>
+                                    <input
+                                        className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4"
+                                        type="text"
+                                        name="name"
+                                        defaultValue={user?.displayName}
+                                        id=""
+                                        placeholder="User name"
+                                    // defaultValue={data.img}
+                                    />
+                                </div>
+                                <div className="space-y-1 mt-8 hidden">
+                                    <h3 className="text-lg font-semibold ml-4">Title :</h3>
+                                    <input
+                                        className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4"
+                                        type="text"
+                                        name="title"
+                                        defaultValue={title}
+                                        id=""
+                                        placeholder="Title"
+                                    // defaultValue={data.img}
+                                    />
+                                </div>
+                                <div className="space-y-1 mt-8 hidden">
+                                    <h3 className="text-lg font-semibold ml-4">Marks :</h3>
+                                    <input
+                                        className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4"
+                                        type="number"
+                                        name="marks"
+                                        defaultValue={marks}
+                                        id=""
+                                        placeholder="marks"
                                     // defaultValue={data.img}
                                     />
                                 </div>

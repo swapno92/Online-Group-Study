@@ -5,6 +5,7 @@ import { AuthContext } from '../Providers/AuthProvider';
 
 const CreateAssignment = () => {
     const { user } = useContext(AuthContext)
+    // console.log(user)
 
     const handleCreateAssignment = event => {
         event.preventDefault()
@@ -16,8 +17,9 @@ const CreateAssignment = () => {
         const date = form.date.value
         const level = form.level.value
         const email = form.email.value
+        const name = form.name.value
         const description = form.description.value
-        const newAssignment = { title, marks, photo, level, email, description, date }
+        const newAssignment = { title,name, marks, photo, level, email, description, date }
         console.log(newAssignment)
 
         //send data to the server
@@ -112,6 +114,18 @@ const CreateAssignment = () => {
                                 defaultValue={user?.email}
                                 id=""
                                 placeholder="User Email"
+                            // defaultValue={data.img}
+                            />
+                        </div>
+                        <div className="space-y-1 mt-8 hidden">
+                            <h3 className="text-lg font-semibold ml-4">User Name :</h3>
+                            <input
+                                className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4"
+                                type="text"
+                                name="name"
+                                defaultValue={user?.displayName}
+                                id=""
+                                placeholder="User name"
                             // defaultValue={data.img}
                             />
                         </div>
