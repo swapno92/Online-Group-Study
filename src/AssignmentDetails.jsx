@@ -26,7 +26,7 @@ const AssignmentDetails = () => {
         console.log(newSumited)
 
         //send data to the server
-        fetch('http://localhost:5000/submitedForm', {
+        fetch('https://assignment-eleven-server-beta.vercel.app/submitedForm', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

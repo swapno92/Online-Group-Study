@@ -31,7 +31,7 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
     }
     const [giveMarkAssignmentCard, setGiveMarkAssignmentCard] = useState(0)
     const handleGiveMark = _id => {
-        fetch(`http://localhost:5000/submitedForm/${_id}`)
+        fetch(`https://assignment-eleven-server-beta.vercel.app/submitedForm/${_id}`)
             .then(res => res.json())
             .then(data => setGiveMarkAssignmentCard(data))
         console.log(_id)

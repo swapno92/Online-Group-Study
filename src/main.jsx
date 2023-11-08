@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       {
         path: 'submited',
         element: <PrivateRoute><Submited></Submited></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/submitedForm')
+        loader: () => fetch('https://assignment-eleven-server-beta.vercel.app/submitedForm')
       }
     ],
   },
