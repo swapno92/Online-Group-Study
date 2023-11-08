@@ -3,11 +3,9 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import swal from "sweetalert";
-// import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "./Providers/AuthProvider";
-// import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 const AssignmentDetails = () => {
     const { user } = useContext(AuthContext)
@@ -39,7 +37,7 @@ const AssignmentDetails = () => {
             .then(data => {
                 console.log(data)
                 if (data.insertedId) {
-                    swal.fire({
+                    Swal.fire({
                         title: 'Success!',
                         text: 'Assignment Form Submited successfully',
                         icon: 'success',
@@ -64,10 +62,10 @@ const AssignmentDetails = () => {
                         className="lg:w-3/5 w-11/12 h-[60vh] mx-auto rounded-lg shadow-2xl my-6"
                     />
                     <p className=" font-semibold text-justify lg:w-3/5 mx-auto ">
-                        <span className="underline font-bold">Details:</span> {description}
-                    </p>
-                    <p className=" font-semibold text-justify lg:w-3/5 mx-auto mt-4">
                         <span className="underline font-bold">Assignment Title:</span> {title}
+                    </p>
+                    <p className=" font-semibold text-justify lg:w-3/5 mx-auto mt-4 ">
+                        <span className="underline font-bold">Details:</span> {description}
                     </p>
 
                     {/* <div className=" flex justify-center">
