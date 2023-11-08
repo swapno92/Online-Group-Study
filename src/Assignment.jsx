@@ -3,7 +3,7 @@ import './Assignment.css'
 
 import { useLoaderData } from "react-router-dom";
 import AssignmentCard from "./AssignmentCard";
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 
 // window.location.reload();
 const Assignment = () => {
@@ -15,16 +15,16 @@ const Assignment = () => {
 
     // const [itemsPerPage, setItemsPerPage] = useState(4)
     // const [currentPage, setCurrentPage] = useState(0)
-    // const [assignmentCart, setAssignmentCart] = useState()
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/assignmentsCount
-    //     `)
-    //     // ?page=${currentPage}&size=${itemsPerPage}
-    //     .then(res => res.json())
-    //     .then(data => setAssignmentCart(data))
-    // }, [currentPage, itemsPerPage])
+    const [assignmentCart, setAssignmentCart] = useState()
+    useEffect(() => {
+        fetch(`http://localhost:5000/assignmentsCount
+        `)
+        // ?page=${currentPage}&size=${itemsPerPage}
+        .then(res => res.json())
+        .then(data => setAssignmentCart(data))
+    }, [])
     // const { count } = assignmentCart
-    // console.log(assignmentCart)
+    console.log(assignmentCart)
     // const itemsPerPage = 4
     // const numberOfPages = Math.ceil(assignmentCart.count / itemsPerPage)
     // const pages = []
