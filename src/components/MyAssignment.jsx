@@ -9,7 +9,7 @@ const MyAssignment = () => {
     const [myAssignments, setMyAssignment] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/assignments/${user?.email}`)
+        fetch(`https://assignment-eleven-server-beta.vercel.app/assignments/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyAssignment(data))
     }, [user?.email])

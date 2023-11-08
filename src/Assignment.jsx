@@ -17,7 +17,7 @@ const Assignment = () => {
     const [currentPage, setCurrentPage] = useState(0)
     const [assignmentCart, setAssignmentCart] = useState(0)
     useEffect(() => {
-        fetch(`http://localhost:5000/assignmentsCount?page=${currentPage}&size=${itemsPerPage}`)
+        fetch(`https://assignment-eleven-server-beta.vercel.app/assignmentsCount?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setAssignmentCart(data))
     }, [currentPage, itemsPerPage])
@@ -89,11 +89,11 @@ const Assignment = () => {
             </section>
 
 
-            <div className='pagination line'>
+            <div className='pagination'>
 
-                <p>
+                {/* <p>
                     currentPage:{currentPage}
-                </p>
+                </p> */}
                 <button className='line rounded-md px-2 py-1' onClick={handlePreviousPage}>Prev</button>
                 {
                     pages.map(page => <button

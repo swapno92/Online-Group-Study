@@ -22,7 +22,7 @@ const MyAssignmentCard = ({ MyAssignment }) => {
                     <p className="font-semibold text-xl">Marks : {marks}<span></span></p>
                 </div>
             </div>
-            <div className="flex justify-evenly items-center mt-5">
+            {/* <div className="flex justify-evenly items-center mt-5">
                 <Link to={`detailsAssignments/${_id}`}>
                     <button
                         // onClick={() => handleDelete(_id)}
@@ -35,7 +35,7 @@ const MyAssignmentCard = ({ MyAssignment }) => {
                         className=" mt-2 px-6 py-1 rounded font-semibold text-xl bg-green-100 border border-green-500">Update <br />Assignment
                     </button>
                 </Link>
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -7,7 +7,7 @@ const UpdateAssignment = () => {
     const assignment = useLoaderData()
     const { _id, photo, level, marks, title, description } = assignment
     // console.log(typeof(_id))
-    // console.log(`http://localhost:5000/assignment/${_id}`)
+    // console.log(`https://assignment-eleven-server-beta.vercel.app/assignment/${_id}`)
 
 
     const handleUpdateAssignment = event => {
@@ -24,7 +24,7 @@ const UpdateAssignment = () => {
         // console.log(updatedAssignment)
 
         //send data to the server
-        fetch(`http://localhost:5000/assignment/${_id}`, {
+        fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

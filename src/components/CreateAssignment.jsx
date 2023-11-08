@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import { AuthContext } from '../Providers/AuthProvider';
 
 const CreateAssignment = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const handleCreateAssignment = event => {
         event.preventDefault()
@@ -17,11 +17,11 @@ const CreateAssignment = () => {
         const level = form.level.value
         const email = form.email.value
         const description = form.description.value
-        const newAssignment = { title, marks, photo, level,email, description,date }
+        const newAssignment = { title, marks, photo, level, email, description, date }
         console.log(newAssignment)
 
         //send data to the server
-        fetch('http://localhost:5000/assignment', {
+        fetch('https://assignment-eleven-server-beta.vercel.app/assignment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -103,7 +103,7 @@ const CreateAssignment = () => {
                                 <option value="Hard" >Hard</option>
                             </select>
                         </div>
-                        <div className="space-y-1 mt-8">
+                        <div className="space-y-1 mt-8 hidden">
                             <h3 className="text-lg font-semibold ml-4">User Email :</h3>
                             <input
                                 className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4"

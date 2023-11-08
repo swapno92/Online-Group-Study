@@ -20,6 +20,8 @@ const Navbar = () => {
     };
 
     const items = (
+        // {`${user ? 'block' : "hidden"}`}
+        // {`${user ? 'hidden' : "block"}`}
         <>
             <li className={` text-lg font-semibold ${user ? 'hidden' : "block"}`}>
                 <NavLink to="/">Home</NavLink>

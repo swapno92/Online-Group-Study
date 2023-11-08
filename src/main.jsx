@@ -17,6 +17,8 @@ import AssignmentDetails from './AssignmentDetails.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 import MyAssignment from './components/MyAssignment.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
+import Submited from './components/Submited.jsx';
+// import SubmissionForm from './components/SubmissionForm.jsx';
 // import Separet from './components/Separet.jsx';
 
 const router = createBrowserRouter([
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "/assignment",
         element: <Assignment></Assignment>,
-        loader: () => fetch('http://localhost:5000/assignment')
+        loader: () => fetch('https://assignment-eleven-server-beta.vercel.app/assignment')
       },
       {
         path: "/createAssignment",
@@ -50,20 +52,22 @@ const router = createBrowserRouter([
         path: 'myAssignments',
         element: <PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>,
       },
-      // {
-      //   path:
-      // }
-    ]
+      {
+        path: 'submited',
+        element: <PrivateRoute><Submited></Submited></PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/submitedForm')
+      }
+    ],
   },
   {
     path: 'assignment/detailsAssignments/:id',
     element: <PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
-    loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+    loader: ({ params }) => fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${params.id}`)
   },
   {
     path: "assignment/updateAssignment/:id",
     element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-    loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+    loader: ({ params }) => fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${params.id}`)
   }
 ]);
 
