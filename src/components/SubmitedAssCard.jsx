@@ -1,6 +1,8 @@
 // import React from 'react';
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Providers/AuthProvider";
 
 // import { useContext, useState } from "react";
 // import { AuthContext } from "../Providers/AuthProvider";
@@ -13,6 +15,7 @@ import { useState } from "react";
 // import { AuthContext } from "../Providers/AuthProvider";
 
 const SubmitedAssCard = ({ submitAssignmentsCard }) => {
+    const {user} = useContext(AuthContext)
     // console.log(submitAssignmentsCard)
     const { _id, title, marks, name } = submitAssignmentsCard
     // const { user } = useContext(AuthContext)
@@ -23,11 +26,37 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
         e.preventDefault()
         const form = e.target;
 
+        const obtainMarks = form.obtainMarks.value
+        const title = form.title.value
+        const email = form.email.value
         const feedback = form.feedback.value
-        const marks = form.marks.value
+        // const marks = form.marks.value
         console.log(feedback, marks)
-        // const  newMyAssignment = {feedback,marks}
+        const newMyAssignment = { feedback, title, obtainMarks, marks,email}
         //     // console.log(title)
+
+
+        fetch('https://assignment-eleven-server-beta.vercel.app/myAssignment', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newMyAssignment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Assignment Form Submited successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Close'
+                    })
+                }
+            })
+
+
     }
     const [giveMarkAssignmentCard, setGiveMarkAssignmentCard] = useState(0)
     const handleGiveMark = _id => {
@@ -68,9 +97,33 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
                     <form onSubmit={handlesubmitmark} >
                         <div className="space-y-3 ">
                             <h3 className="font-semibold text-xl">Google  Drive Link or PDF file :{pdf} </h3>
-                            <h3 className="font-semibold text-xl">Note : <input defaultValue={note} type="text" /></h3>
+                            <h3 className="font-semibold text-xl">Note : {note}</h3>
                             <div className="flex items-center">
-                                <h2 className="font-semibold text-xl">Marks :</h2> <input  className="line ml-4 w-20 rounded-md pl-3" type="number" name="marks" />
+                                <h2 className="font-semibold text-xl">Marks :</h2> <input  className="line ml-4 w-20 rounded-md pl-3" type="number" name="obtainMarks" />
+                            </div>
+                            <div className="space-y-1 mt-8 hidden">
+                                <h3 className="text-lg font-semibold ml-4">User Email :</h3>
+                                <input
+                                    className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4"
+                                    type="email"
+                                    name="email"
+                                    defaultValue={user?.email}
+                                    id=""
+                                    placeholder="User Email"
+                                // defaultValue={data.img}
+                                />
+                            </div>
+                            <div className="space-y-1 mt-8 hidden">
+                                <h3 className="text-lg font-semibold ml-4">Title :</h3>
+                                <input
+                                    className="input input-bordered md:w-[85%] w-[90%] pl-8 md:ml-0 ml-4"
+                                    type="text"
+                                    name="title"
+                                    defaultValue={'title'}
+                                    id=""
+                                    placeholder="title"
+                                // defaultValue={data.img}
+                                />
                             </div>
                             <div className="space-y-1 mt-8 ">
                                 <h3 className="font-semibold text-xl">Feedback :</h3>
