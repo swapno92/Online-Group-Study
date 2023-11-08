@@ -24,7 +24,7 @@ const Login = () => {
                 console.log(result.user);
                 e.target.reset()
                 swal("Good job!", "Login Success.", "success");
-                navigate('/')
+                navigate('/assignment')
             })
             .catch(error => {
                 console.error(error)
