@@ -1,7 +1,11 @@
 // import React from 'react';
 
-import { useContext, useState } from "react";
-import { AuthContext } from "../Providers/AuthProvider";
+import { useState } from "react";
+
+// import { useContext, useState } from "react";
+// import { AuthContext } from "../Providers/AuthProvider";
+// import Swal from "sweetalert2";
+// import MyAssignment from "./MyAssignment";
 // const {user} = useContext(AuthContext)
 
 // import { useEffect } from "react";
@@ -10,7 +14,7 @@ import { AuthContext } from "../Providers/AuthProvider";
 
 const SubmitedAssCard = ({ submitAssignmentsCard }) => {
     // console.log(submitAssignmentsCard)
-    const { _id,title, marks, name } = submitAssignmentsCard
+    const { _id, title, marks, name } = submitAssignmentsCard
     // const { user } = useContext(AuthContext)
     // console.log(title)
     // console.log(submitAssignmentsCard)
@@ -21,19 +25,23 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
 
         const feedback = form.feedback.value
         const marks = form.marks.value
-        console.log(feedback,marks)
-    //     // console.log(title)
+        console.log(feedback, marks)
+        // const  newMyAssignment = {feedback,marks}
+        //     // console.log(title)
     }
     const [giveMarkAssignmentCard, setGiveMarkAssignmentCard] = useState(0)
-    const handleGiveMark = _id =>{
+    const handleGiveMark = _id => {
         fetch(`http://localhost:5000/submitedForm/${_id}`)
             .then(res => res.json())
             .then(data => setGiveMarkAssignmentCard(data))
         console.log(_id)
     }
     // console.log(giveMarkAssignmentCard)
-    const {pdf,note} = giveMarkAssignmentCard
-    // console.log(pdf)
+    const { pdf, note } = giveMarkAssignmentCard
+    console.log(note)
+
+
+
     return (
         // {/* card */ }
         < div className="bg-yellow-50 rounded-xl shadow-xl py-4 px-2" >
@@ -49,7 +57,7 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
             </div>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
             <div className="flex flex-col justify-center mt-3 items-center">
-                <button className="px-3 rounded-md border border-black py-2 text-center bg-stone-500 text-white" onClick={() => document.getElementById('my_modal_3').showModal()}><span onClick={()=> handleGiveMark(_id)}>Give Mark</span></button>
+                <button className="px-3 rounded-md border border-black py-2 text-center bg-stone-500 text-white" onClick={() => document.getElementById('my_modal_3').showModal()}><span onClick={() => handleGiveMark(_id)}>Give Mark</span></button>
             </div>
             <dialog id="my_modal_3" className="modal ">
                 <div className="modal-box bg-gray-100">
@@ -59,10 +67,10 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
                     </form>
                     <form onSubmit={handlesubmitmark} >
                         <div className="space-y-3 ">
-                            <h3 className="font-semibold text-xl">Google Drive Link or PDF file : <a className="underline" href={pdf}>{pdf}</a></h3>
-                            <h3 className="font-semibold text-xl">Note : {note}</h3>
+                            <h3 className="font-semibold text-xl">Google  Drive Link or PDF file :{pdf} </h3>
+                            <h3 className="font-semibold text-xl">Note : <input defaultValue={note} type="text" /></h3>
                             <div className="flex items-center">
-                                <h2 className="font-semibold text-xl">Marks :</h2> <input className="line ml-4 w-20 rounded-md pl-3" type="number" name="marks"/>
+                                <h2 className="font-semibold text-xl">Marks :</h2> <input  className="line ml-4 w-20 rounded-md pl-3" type="number" name="marks" />
                             </div>
                             <div className="space-y-1 mt-8 ">
                                 <h3 className="font-semibold text-xl">Feedback :</h3>
@@ -77,7 +85,7 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
                                 ></textarea>
                             </div>
                             <div className="flex justify-center items-center">
-                                <button  type="submit" className="btn bg-gray-300 font-semibold">Submit</button>
+                                <button type="submit" className="btn bg-gray-300 font-semibold">Submit</button>
                             </div>
                         </div>
                     </form>
