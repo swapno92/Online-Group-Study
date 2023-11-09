@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "/assignment",
         element: <Assignment></Assignment>,
-        loader: () => fetch('https://assignment-eleven-server-beta.vercel.app/assignment', { credentials: 'include' })
+        loader: () => fetch('https://assignment-eleven-server-beta.vercel.app/assignment')
       },
       {
         path: "/createAssignment",
@@ -55,19 +55,19 @@ const router = createBrowserRouter([
       {
         path: 'submited',
         element: <PrivateRoute><Submited></Submited></PrivateRoute>,
-        loader: () => fetch('https://assignment-eleven-server-beta.vercel.app/submitedForm', { credentials: 'include' })
+        loader: () => fetch('https://assignment-eleven-server-beta.vercel.app/submitedForm')
       }
     ],
   },
   {
     path: 'assignment/detailsAssignments/:id',
     element: <PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
-    loader: ({ params }) => fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${params.id}`, { credentials: 'include' })
+    loader: ({ params }) => fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${params.id}`)
   },
   {
     path: "assignment/updateAssignment/:id",
     element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-    loader: ({ params }) => fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${params.id}`, { credentials: 'include' })
+    loader: ({ params }) => fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${params.id}`)
   }
 ]);
 

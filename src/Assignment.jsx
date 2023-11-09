@@ -17,7 +17,7 @@ const Assignment = () => {
     const [currentPage, setCurrentPage] = useState(0)
     const [assignmentCart, setAssignmentCart] = useState(0)
     useEffect(() => {
-        fetch(`https://assignment-eleven-server-beta.vercel.app/assignmentsCount?page=${currentPage}&size=${itemsPerPage}`,{credentials: 'include'})
+        fetch(`https://assignment-eleven-server-beta.vercel.app/assignmentsCount?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setAssignmentCart(data))
     }, [currentPage, itemsPerPage])

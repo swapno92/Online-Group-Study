@@ -28,7 +28,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
             }).then((result) => {
                 if (result.isConfirmed) {
 
-                    fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${_id}`, { credentials: 'include' }, {
+                    fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${_id}`,  {
                         method: 'DELETE'
                     })
                         .then(res => res.json())

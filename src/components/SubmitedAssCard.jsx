@@ -27,7 +27,7 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
         //     // console.log(title)
 
 
-        fetch('https://assignment-eleven-server-beta.vercel.app/myAssignment', { credentials: 'include' }, {
+        fetch('https://assignment-eleven-server-beta.vercel.app/myAssignment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -46,7 +46,7 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
     }
     const [giveMarkAssignmentCard, setGiveMarkAssignmentCard] = useState(0)
     const handleGiveMark = _id => {
-        fetch(`https://assignment-eleven-server-beta.vercel.app/submitedForm/${_id}`, { credentials: 'include' })
+        fetch(`https://assignment-eleven-server-beta.vercel.app/submitedForm/${_id}`)
             .then(res => res.json())
             .then(data => setGiveMarkAssignmentCard(data))
         console.log(_id)
@@ -70,7 +70,6 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
             <div className="flex items-center justify-center gap-3">
                 <h2 className="text-center text-2xl font-semibold mt-4 px-2 py-1">examinee name :{name}</h2>
             </div>
-            <ToastContainer></ToastContainer>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
             <div className="flex flex-col justify-center mt-3 items-center">
                 <button className="px-3 rounded-md border border-black py-2 text-center bg-stone-500 text-white" onClick={() => document.getElementById('my_modal_3').showModal()}><span onClick={() => handleGiveMark(_id)}>Give Mark</span></button>
@@ -88,6 +87,8 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
                             <div className="flex items-center">
                                 <h2 className="font-semibold text-xl">Marks :</h2> <input  className="line ml-4 w-20 rounded-md pl-3" type="number" name="obtainMarks" />
                             </div>
+                            <ToastContainer></ToastContainer>
+
                             <div className="space-y-1 mt-8 hidden">
                                 <h3 className="text-lg font-semibold ml-4">User Email :</h3>
                                 <input

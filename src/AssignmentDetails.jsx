@@ -31,7 +31,7 @@ const AssignmentDetails = () => {
         console.log(newSumited)
 
         //send data to the server
-        fetch('https://assignment-eleven-server-beta.vercel.app/submitedForm', { credentials: 'include' } ,{
+        fetch('https://assignment-eleven-server-beta.vercel.app/submitedForm', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -68,7 +68,6 @@ const AssignmentDetails = () => {
                     <p className=" font-semibold text-justify lg:w-3/5 mx-auto mt-4 ">
                         <span className="underline font-bold">Details:</span> {description}
                     </p>
-                    <ToastContainer></ToastContainer>
 
 
                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
@@ -82,6 +81,8 @@ const AssignmentDetails = () => {
                                 {/* if there is a button in form, it will close the modal */}
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                             </form>
+                            <ToastContainer></ToastContainer>
+
                             <h3 className="font-bold text-lg text-center">Assignment Submission Form</h3>
                             <form onSubmit={handleSubmitedForm}>
 

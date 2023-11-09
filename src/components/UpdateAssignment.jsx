@@ -24,7 +24,7 @@ const UpdateAssignment = () => {
         // console.log(updatedAssignment)
 
         //send data to the server
-        fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${_id}`, { credentials: 'include' }, {
+        fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
