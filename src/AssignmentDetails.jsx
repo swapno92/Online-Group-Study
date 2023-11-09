@@ -5,7 +5,12 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { useContext } from "react";
 import { AuthContext } from "./Providers/AuthProvider";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
+// import { toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const AssignmentDetails = () => {
     const { user } = useContext(AuthContext)
@@ -37,12 +42,8 @@ const AssignmentDetails = () => {
             .then(data => {
                 console.log(data)
                 if (data.insertedId) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Assignment Form Submited successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Close'
-                    })
+                    toast("Assignment Form Submited successfully'");
+                    console.log('first')
                 }
             })
     }
@@ -67,15 +68,8 @@ const AssignmentDetails = () => {
                     <p className=" font-semibold text-justify lg:w-3/5 mx-auto mt-4 ">
                         <span className="underline font-bold">Details:</span> {description}
                     </p>
+                    <ToastContainer></ToastContainer>
 
-                    {/* <div className=" flex justify-center">
-                        <Link to='assignment/detailsAssignments/submissionForm'
-                            // onClick={handleCurt}
-                            className="text-center  px-4 py-1 rounded-lg btn-accent mt-4"
-                        >
-                            Take Assignment
-                        </Link>
-                    </div> */}
 
                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
                     <div className=" flex justify-center">
@@ -90,7 +84,6 @@ const AssignmentDetails = () => {
                             </form>
                             <h3 className="font-bold text-lg text-center">Assignment Submission Form</h3>
                             <form onSubmit={handleSubmitedForm}>
-
 
                                 <div className="space-y-1 mt-8 ">
                                     <h3 className="text-lg font-semibold ml-4"> PDF link :</h3>

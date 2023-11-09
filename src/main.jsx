@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "/assignment",
         element: <Assignment></Assignment>,
-        loader: () => fetch('https://assignment-eleven-server-beta.vercel.app/assignment')
+        loader: () => fetch('https://assignment-eleven-server-beta.vercel.app/assignment', { credentials: 'include' })
       },
       {
         path: "/createAssignment",

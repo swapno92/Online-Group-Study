@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div className="line py-8 bg-black text-gray-300">
             <div className="line w-[90%] mx-auto md:flex gap-12 ">
-                <div className="line w-[30%] p-4 flex flex-col items-center space-y-2">
+                <div className="line md:w-[30%] p-4 flex flex-col items-center space-y-2">
                     <img src="https://i.ibb.co/9r69Pbm/logo2.png" alt="" className="w-16" />
                     <h2 className="font-bold font-serif text-3xl text-[#374c7b]">Online Study Group</h2>
                     <p className="font-semibold">Join our vibrant online study group designed for collaborative learning and academic support. Connect with fellow students, share knowledge, and enhance your understanding of course materials. Engage in lively discussions, participate in interactive study sessions, and access a wealth of resources shared by members.</p>

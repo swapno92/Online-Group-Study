@@ -1,18 +1,9 @@
 // import React from 'react';
 
 import { useContext, useState } from "react";
-import Swal from "sweetalert2";
 import { AuthContext } from "../Providers/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
 
-// import { useContext, useState } from "react";
-// import { AuthContext } from "../Providers/AuthProvider";
-// import Swal from "sweetalert2";
-// import MyAssignment from "./MyAssignment";
-// const {user} = useContext(AuthContext)
-
-// import { useEffect } from "react";
-// import { useContext } from "react";
-// import { AuthContext } from "../Providers/AuthProvider";
 
 const SubmitedAssCard = ({ submitAssignmentsCard }) => {
     const {user} = useContext(AuthContext)
@@ -47,12 +38,7 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
             .then(data => {
                 console.log(data)
                 if (data.insertedId) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Assignment Form Submited successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Close'
-                    })
+                    toast('Assignment Form Submited successfully')
                 }
             })
 
@@ -67,7 +53,7 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
     }
     // console.log(giveMarkAssignmentCard)
     const { pdf, note } = giveMarkAssignmentCard
-    console.log(note)
+    // console.log(note)
 
 
 
@@ -84,6 +70,7 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
             <div className="flex items-center justify-center gap-3">
                 <h2 className="text-center text-2xl font-semibold mt-4 px-2 py-1">examinee name :{name}</h2>
             </div>
+            <ToastContainer></ToastContainer>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
             <div className="flex flex-col justify-center mt-3 items-center">
                 <button className="px-3 rounded-md border border-black py-2 text-center bg-stone-500 text-white" onClick={() => document.getElementById('my_modal_3').showModal()}><span onClick={() => handleGiveMark(_id)}>Give Mark</span></button>

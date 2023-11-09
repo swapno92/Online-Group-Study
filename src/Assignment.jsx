@@ -7,22 +7,23 @@ import { useEffect, useState } from "react";
 
 // window.location.reload();
 const Assignment = () => {
+    const [searchItem, setSearchItem] = useState('')
     const loadedAssignments = useLoaderData()
     // console.log(loadedAssignments)
     const [assignments, setAssignments] = useState(loadedAssignments)
     // console.log(assignments)
 
-
     const [itemsPerPage, setItemsPerPage] = useState(4)
     const [currentPage, setCurrentPage] = useState(0)
     const [assignmentCart, setAssignmentCart] = useState(0)
     useEffect(() => {
-        fetch(`https://assignment-eleven-server-beta.vercel.app/assignmentsCount?page=${currentPage}&size=${itemsPerPage}`)
+        fetch(`https://assignment-eleven-server-beta.vercel.app/assignmentsCount?page=${currentPage}&size=${itemsPerPage}`,{credentials: 'include'})
             .then(res => res.json())
             .then(data => setAssignmentCart(data))
     }, [currentPage, itemsPerPage])
     const { count } = assignmentCart
-    console.log(count)
+    console.log(assignmentCart)
+    // console.log(count)
     // const itemsPerPage = 4
     const numberOfPages = Math.ceil(count / itemsPerPage)
     const pages = []
@@ -50,9 +51,8 @@ const Assignment = () => {
 
 
 
-    const [searchItem, setSearchItem] = useState('')
     // const [showCards, setShowCards] = useState([])
-    const filterData = assignments?.filter((item) => {
+    const filterData = assignments.filter((item) => {
         // console.log(item.level)
         if (item && item.level) {
             return item.level.toLowerCase().includes(searchItem.toLowerCase())
