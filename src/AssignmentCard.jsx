@@ -14,7 +14,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
     // console.log(email)
 
     const handleDelete = _id => {
-        if (email === user.email) {
+        if (email === user?.email) {
             // console.log(true)
             console.log(_id)
             Swal.fire({
@@ -28,7 +28,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
             }).then((result) => {
                 if (result.isConfirmed) {
 
-                    fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${_id}`, {
+                    fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${_id}`, { credentials: 'include' }, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())

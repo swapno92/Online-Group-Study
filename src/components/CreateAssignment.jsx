@@ -23,7 +23,7 @@ const CreateAssignment = () => {
         console.log(newAssignment)
 
         //send data to the server
-        fetch('https://assignment-eleven-server-beta.vercel.app/assignment', {
+        fetch('https://assignment-eleven-server-beta.vercel.app/assignment', { credentials: 'include' }, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

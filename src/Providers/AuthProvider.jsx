@@ -51,7 +51,9 @@ const AuthProvider = ({ children }) => {
                     })
             }
             else {
-                axios.post('https://assignment-eleven-server-beta.vercel.app/logout', loggedUser, {
+                axios.post('https://assignment-eleven-server-beta.vercel.app/logout', {
+                    withCredentials: true
+                } ,loggedUser, {
                     withCredentials: true
                 })
                 .then(res => {

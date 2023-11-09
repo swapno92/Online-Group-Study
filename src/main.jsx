@@ -55,19 +55,19 @@ const router = createBrowserRouter([
       {
         path: 'submited',
         element: <PrivateRoute><Submited></Submited></PrivateRoute>,
-        loader: () => fetch('https://assignment-eleven-server-beta.vercel.app/submitedForm')
+        loader: () => fetch('https://assignment-eleven-server-beta.vercel.app/submitedForm', { credentials: 'include' })
       }
     ],
   },
   {
     path: 'assignment/detailsAssignments/:id',
     element: <PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
-    loader: ({ params }) => fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${params.id}`)
+    loader: ({ params }) => fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${params.id}`, { credentials: 'include' })
   },
   {
     path: "assignment/updateAssignment/:id",
     element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-    loader: ({ params }) => fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${params.id}`)
+    loader: ({ params }) => fetch(`https://assignment-eleven-server-beta.vercel.app/assignment/${params.id}`, { credentials: 'include' })
   }
 ]);
 

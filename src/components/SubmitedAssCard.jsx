@@ -27,7 +27,7 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
         //     // console.log(title)
 
 
-        fetch('https://assignment-eleven-server-beta.vercel.app/myAssignment', {
+        fetch('https://assignment-eleven-server-beta.vercel.app/myAssignment', { credentials: 'include' }, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -46,7 +46,7 @@ const SubmitedAssCard = ({ submitAssignmentsCard }) => {
     }
     const [giveMarkAssignmentCard, setGiveMarkAssignmentCard] = useState(0)
     const handleGiveMark = _id => {
-        fetch(`https://assignment-eleven-server-beta.vercel.app/submitedForm/${_id}`)
+        fetch(`https://assignment-eleven-server-beta.vercel.app/submitedForm/${_id}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => setGiveMarkAssignmentCard(data))
         console.log(_id)

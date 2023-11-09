@@ -31,7 +31,7 @@ const AssignmentDetails = () => {
         console.log(newSumited)
 
         //send data to the server
-        fetch('https://assignment-eleven-server-beta.vercel.app/submitedForm', {
+        fetch('https://assignment-eleven-server-beta.vercel.app/submitedForm', { credentials: 'include' } ,{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
