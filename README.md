@@ -1,5 +1,8 @@
 ## website name : Online Group-Study assignment
 
+## 💻 Using Technologies for this project
+[![My Skills](https://skillicons.dev/icons?i=js,react,firebase,nodejs,mongodb,tailwind,html,vite)](https://skillicons.dev)
+
 ## website link : https://online-study-c6231.web.app/
 
 - Six routes are created in the website, if the user is logged in, the user can see the assignment and submit assignment through my assignment.
